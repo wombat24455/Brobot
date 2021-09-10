@@ -6,7 +6,7 @@ botToken = process.env.TOKEN;
 const bot = new Eris.CommandClient(botToken, {}, {
   description: "Powered by Eris",
   owner: "AM GAMOr (wombat)#1521\nid: 546107653718540298",
-  prefix: "!"
+  prefix: "bro."
 });
 
 bot.on("ready", () => {
@@ -29,17 +29,12 @@ function uptime() {
 
 bot.on("messageCreate", (msg) => {
   switch (msg.content) {
-    case '!uptime':
+    case 'bro.uptime':
       bot.createMessage(msg.channel.id, `${uptime()}`);
       break;
-
+    case `bro.invite`:
+      bot.createMessage(msg.channel.id, 'invite me to ur server plis --> https://discord.com/oauth2/authorize?client_id=885593101375262762&permissions=8&scope=bot')
   }
-
-  /*
-  if(msg.content === `!uptime`) {
-    bot.createMessage(msg.channel.id, `${uptime()}`);
-  }
-  */
 });
 
 bot.connect();

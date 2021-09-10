@@ -2,10 +2,11 @@ const Eris = require("eris");
 require('dotenv').config();
 
 botToken = process.env.TOKEN;
+prefix = 'bro.';
 
 const bot = new Eris.CommandClient(botToken, {}, {
   description: "Powered by Eris",
-  owner: "AM GAMOr (wombat)#1521\nid: 546107653718540298",
+  owner: "`Owner: AM GAMOr (wombat)#1521`\nID: `546107653718540298`",
   prefix: "bro."
 });
 
@@ -22,7 +23,7 @@ function uptime() {
   uptimeSecs %= 3600;
   let minutes = Math.floor(uptimeSecs / 60);
   let seconds = Math.floor(uptimeSecs % 60);
-  var totalUptime = `${days}d, ${hours}h, ${minutes}m and ${seconds}s`;
+  var totalUptime = `\`${days}\`d, \`${hours}\`h, \`${minutes}\`m and \`${seconds}\`s`;
 
   return totalUptime;
 }
@@ -33,7 +34,8 @@ bot.on("messageCreate", (msg) => {
       bot.createMessage(msg.channel.id, `${uptime()}`);
       break;
     case `bro.invite`:
-      bot.createMessage(msg.channel.id, 'invite me to ur server plis --> https://discord.com/oauth2/authorize?client_id=885593101375262762&permissions=8&scope=bot')
+      bot.createMessage(msg.channel.id, 'invite me to ur server plis --> https://discord.com/oauth2/authorize?client_id=885593101375262762&permissions=8&scope=bot');
+      break;
   }
 });
 

@@ -28,11 +28,19 @@ function uptime() {
   return totalUptime;
 }
 
+function ping(msg, channel) {
+  bot.createMessage(msg.channel.id, "Pinging...").then(m => {
+    m.edit(`Roundtrip latency: \`${m.createdTimestamp - message.createdTimestamp}ms`); // \nAPI Latency: \`${Math.round(client.ws.ping)}ms\``);
+  });
+}
+
 bot.on("messageCreate", (msg) => {
   switch (msg.content) {
     case 'bro.uptime':
       bot.createMessage(msg.channel.id, `${uptime()}`);
       break;
+    case 'ping':
+      bot.createMessage(msg.channel.id, `${ping()}`)
     case `bro.invite`:
       bot.createMessage(msg.channel.id, 'invite me to ur server plis --> https://discord.com/oauth2/authorize?client_id=885593101375262762&permissions=8&scope=bot');
       break;
